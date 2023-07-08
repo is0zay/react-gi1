@@ -1,0 +1,115 @@
+Very Easy
+	class App extends React.Component {
+	render() {
+		return (
+			<div>
+				<h1>Isaiah</h1>
+				<h2>555-555-5555</h2>
+				<h2>January 1, 2000</h2>
+			</div>
+		)
+	}
+}
+
+Easy
+	constructor(props) {
+			super(props);
+			this.state = {
+				person: {}
+			}
+		}
+
+
+
+
+
+Medium
+	import React from 'react';
+import './App.css';
+
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			people: {
+				name:props.name,
+				number: props.number,
+				dob: props.dob
+			}
+		}
+	}
+	render() {
+		return (
+			<div>
+				<h1>Name: {this.state.person.name}</h1>
+				<h2>Number: {this.state.person.number}</h2>
+				<h2>D.O.B.: {this.state.person.dob}</h2>
+			</div>
+		)
+	}
+}
+
+
+export default App;
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App 
+		name="Zay"
+		number="555-555-5555"
+		dob="2000-01-01"
+	/>
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+
+HARD:
+import React from 'react';
+import './App.css';
+
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			people: [
+				{name: "Zay", number: "555-555-5555", dob: "2001-01-01"},
+				{name: "Cam", number: "444-444-4444", dob: "2002-02-02"},
+				{name: "Al", number: "333-333-3333", dob: "2003-03-03"}
+			],
+		};
+	}
+	render() {
+		const { people } = this.state;
+		return (
+			<div>
+				{people.map((person, index) => {
+					return(
+					<div key={index}> 
+						<h1>Name: {person.name}</h1>
+						<h2>Number: {person.number}</h2>
+						<h2>D.O.B.: {person.dob}</h2>
+					</div>
+					)
+				})}
+				
+			</div>
+		)
+	}
+}
+
+
+export default App;
+
